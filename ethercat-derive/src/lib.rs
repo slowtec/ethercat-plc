@@ -23,6 +23,8 @@ pub fn derive_single_process_image(input: TokenStream) -> TokenStream {
     } else if id_str.starts_with("EL") {
         let nr = id_str[2..6].parse::<u32>().unwrap();
         quote!(ethercat::SlaveId { vendor_id: 2, product_code: (#nr << 16) | 0x3052 })
+    } else if id_str.starts_with("UR20FBCEC") {
+        quote!(ethercat::SlaveId { vendor_id: 0x230, product_code: 0x4f911c30 })
     } else {
         panic!("cannot interpret struct name '{}' into a slave ID", id_str);
     };

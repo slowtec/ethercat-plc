@@ -6,6 +6,7 @@ mod image;
 mod server;
 
 pub mod beckhoff;
+pub mod weidmueller;
 pub mod mlz_spec;
 
 pub use self::plc::{Plc, PlcBuilder};
